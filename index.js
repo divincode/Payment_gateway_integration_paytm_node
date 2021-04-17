@@ -11,7 +11,7 @@ const app = express();
 const parseUrl = express.urlencoded({ extended: false });
 const parseJson = express.json({ extended: false });
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3500;
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
@@ -19,10 +19,12 @@ app.get("/", (req, res) => {
 
 app.post("/paynow", [parseUrl, parseJson], (req, res) => {
   // Route for making payment
+  var x= typeof req.body.name;
+  console.log(x);
 
   var paymentDetails = {
     amount: req.body.amount,
-    customerId: req.body.name,
+    customerId: req.body.name.split(" ").join(""),
     customerEmail: req.body.email,
     customerPhone: req.body.phone
 }
