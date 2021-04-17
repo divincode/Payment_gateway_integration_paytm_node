@@ -3,6 +3,9 @@ const express = require("express");
 const https = require("https");
 const qs = require("querystring");
 
+const checksum_lib = require("./paytm/checksum");
+const config = require("./paytm/config");
+
 const app = express();
 
 const parseUrl = express.urlencoded({ extended: false });

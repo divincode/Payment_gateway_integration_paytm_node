@@ -1,0 +1,1 @@
+Paytm payment gateway is integrated ..
